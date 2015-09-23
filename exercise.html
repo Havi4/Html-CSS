@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>廖学峰js练习</title>
+
+    <script>
+        //自己的命名空间
+
+        var xiaoming = {
+            name : '小明',
+            birth : 1990,
+            age : getAge
+        };
+        function getAge() {
+            var y = new Date().getFullYear();
+            return y-this.birth;
+        }
+
+        window.onload = function () {
+
+            var oIput1 = document.getElementById('btn1');
+            oIput1.onclick = function () {
+               alert(xiaoming.age());
+            }
+            var oIput2 = document.getElementById('btn2');
+            oIput2.onclick = function () {
+                var age = getAge.apply(xiaoming,null);
+                alert(age);
+            }
+        }
+
+    </script>
+</head>
+<body>
+<input id="btn1" type="button" value="获取年龄"/><br/>
+<input type="button" id="btn2" value="apply"/>
+
+
+</body>
+</html>
